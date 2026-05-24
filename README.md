@@ -22,7 +22,7 @@ Homepage
 
 ---
 
-## Tổng Quan Flow Phân Tích
+## Tổng Quan Flow Dashboard
 
 Dashboard được thiết kế theo flow chẩn đoán từ tổng quan đến chi tiết. 3 trang kết nối với nhau để trả lời 1 câu hỏi duy nhất: **doanh số đang có vấn đề gì và vấn đề đến từ đâu?**
 
