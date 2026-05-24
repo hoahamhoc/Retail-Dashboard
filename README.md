@@ -6,49 +6,9 @@ Dashboard phân tích toàn diện hoạt động bán lẻ — từ doanh số,
 
 ---
 
-## Data Model
-
-Dashboard được xây dựng trên mô hình Star Schema gồm 1 bảng Fact và các bảng Dimension.
-
-```
-flowchart LR
-    SALES([Sales\nFact Table]) --> DIM_DATE([dim_date])
-    SALES --> DIM_CUSTOMER([Dim_Customer])
-    SALES --> DIM_PRODUCT([Dim_Product])
-    SALES --> DIM_STORE([Dim_Store])
-    SALES --> DIM_GEO([Dim_GeoLocations])
-    SALES --> RFM([RFM Table])
-    SALES --> TRAFFIC([Traffit_Foot])
-    DIM_DATE --> TIME_FILTER([Chọn Thời Gian\nCalculated Table])
-
-    style SALES fill:#f4a9a8,stroke:#e07b7b
-    style DIM_DATE fill:#f7d794,stroke:#e6b84a
-    style DIM_CUSTOMER fill:#f7d794,stroke:#e6b84a
-    style DIM_PRODUCT fill:#f7d794,stroke:#e6b84a
-    style DIM_STORE fill:#f7d794,stroke:#e6b84a
-    style DIM_GEO fill:#f7d794,stroke:#e6b84a
-    style RFM fill:#a8d5c2,stroke:#5aab8e
-    style TRAFFIC fill:#a8d5c2,stroke:#5aab8e
-    style TIME_FILTER fill:#c9b8e8,stroke:#9b7fd4
-```
-
-| Bảng | Vai trò |
-|---|---|
-| Sales | Fact table — giao dịch bán hàng (OrderDate, CustomerKey, ProductKey, StoreKey, Revenue, Quantity) |
-| dim_date | Calendar table — time intelligence |
-| Dim_Customer | Thông tin khách hàng (tuổi, giới tính, địa lý) |
-| Dim_Product | Sản phẩm (Category, Sub-Category, Brand, Price Group) |
-| Dim_Store | Cửa hàng (tên, diện tích, khu vực) |
-| Dim_GeoLocations | Địa lý (State, Country) |
-| RFM Table | Phân khúc khách hàng theo Recency, Frequency, Monetary |
-| Traffit_Foot | Lượt khách vào cửa hàng |
-| Chọn Thời Gian | Calculated table — bộ lọc thời gian động (Today, This Week, This Month...) |
-
----
-
 ## Lưu ý về dữ liệu
 
-Dashboard sử dụng bộ dữ liệu mẫu Contoso Retail (Microsoft sample data). Các con số, tên nhân viên, tên cửa hàng chỉ mang tính minh họa cho cấu trúc và logic phân tích — không phản ánh số liệu thực tế của bất kỳ doanh nghiệp nào.
+Dashboard sử dụng dữ liệu nguồn từ bộ mẫu Contoso Retail (Microsoft sample data), có bổ sung thêm các cột về target doanh số và thông tin manager/nhân viên. Mục đích là để minh họa cấu trúc và logic phân tích — các con số, tên nhân viên, tên cửa hàng không phản ánh số liệu thực tế của bất kỳ doanh nghiệp nào.
 
 ---
 
