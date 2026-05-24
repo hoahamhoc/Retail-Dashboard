@@ -2,7 +2,7 @@
 
 Dashboard phân tích toàn diện hoạt động bán lẻ — từ doanh số, hiệu suất nhân viên & cửa hàng đến hành vi khách hàng theo mô hình RFM. Mục tiêu là giúp ban quản lý xác định đúng vấn đề và ra quyết định kịp thời.
 
-## [Xem PDF Dashboard tại đây](./Retail_Dashboard.pdf)
+## [Xem Interactive Dashboard tại đây](https://report.onhandbi.com/public/report?token=eyJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfbGlua19pZCI6NjUzLCJoYXNfcGFzc2NvZGUiOmZhbHNlLCJ0aW1lIjoxNzc5NjMxNDg3fQ.VTH5d0Swd6UTp-59r10YrTo6W-8xcJJ6cJYerc2FpLA)
 
 ---
 
