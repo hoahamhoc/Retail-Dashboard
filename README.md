@@ -22,51 +22,48 @@ Homepage
 
 ---
 
-## Tổng Quan Flow Dashboard
-
+## Tổng Quan Flow Phân Tích
+ 
 Dashboard được thiết kế theo flow chẩn đoán từ tổng quan đến chi tiết. 3 trang kết nối với nhau để trả lời 1 câu hỏi duy nhất: **doanh số đang có vấn đề gì và vấn đề đến từ đâu?**
-
+ 
 ```mermaid
-flowchart TD
-    A([Buoc 1 — Sales Overview<br/>Doanh so giam o Country / Brand / Category nao?<br/>Muc dong gop % ra sao?]) --> B([Buoc 2 — Sales Team & Store<br/>Giam do Traffic thap hay chuyen doi kem?<br/>Store nao dang yeu?])
-    B --> C([Buoc 3 — Customer Segmentation & RFM<br/>Giam do khach moi hay khach cu?<br/>Neu khach cu giam thi nhom RFM nao dang roi di?])
-    C --> D([Champions giam - dang mat khach VIP<br/>Loyal giam - khach trung thanh chuyen sang At Risk])
-
+flowchart LR
+    A([Bước 1\nSales Overview\nGiảm ở đâu?\nĐóng góp % ra sao?]) --> B([Bước 2\nSales Team & Store\nTraffic thấp?\nChuyển đổi kém?])
+    B --> C([Bước 3\nCustomer & RFM\nKhách mới hay cũ?\nNhóm nào đang rời đi?])
+ 
     style A fill:#f4a9a8,stroke:#e07b7b
     style B fill:#f7d794,stroke:#e6b84a
     style C fill:#a8d5c2,stroke:#5aab8e
-    style D fill:#c9b8e8,stroke:#9b7fd4
 ```
 
 ---
-
+ 
 ## Hướng Dẫn Đọc Dashboard
-
+ 
 ### Bước 1 — Sales Overview: *"Chuyện gì đang xảy ra và xảy ra khi nào?"*
-
+ 
 Trang Overview cung cấp 2 góc nhìn:
 - **Đóng góp doanh số** theo thời gian, Category, Brand, Country — ai đang chiếm bao nhiêu % tổng revenue
 - **So sánh** vs kỳ trước và vs Target — đang tăng/giảm bao nhiêu, đạt hay chưa đạt
-
 Hai góc nhìn này kết hợp theo flow bên dưới:
-
+ 
 ```mermaid
-flowchart TD
-    A([Doanh so tang hay giam vs ky truoc?<br/>Dat bao nhieu % vs Target?]) --> B([Xem Revenue By Time<br/>Giam tap trung thang nao?<br/>Hay giam deu ca ky?])
-    B --> C([Loc giai doan do:<br/>Category / Brand / Country nao giam?<br/>Dong gop % bao nhieu?<br/>NPD dong gop % bao nhieu?])
-    C --> D([Uu tien theo muc dong gop:<br/>Dong gop cao ma giam = nguy hiem nhat<br/>Dong gop thap du giam manh = it uu tien hon])
+flowchart LR
+    A([Doanh số tăng/giảm\nvs kỳ trước?\nĐạt % Target?]) --> B([Revenue By Time\nGiảm tập trung\ntháng nào?])
+    B --> C([Lọc giai đoạn đó:\nCategory / Brand / Country\nnào giảm? Đóng góp %?])
+    C --> D([Ưu tiên:\nĐóng góp cao + giảm\n= xử lý trước])
+ 
     style A fill:#f4a9a8,stroke:#e07b7b
     style B fill:#f7d794,stroke:#e6b84a
     style C fill:#a8d5c2,stroke:#5aab8e
     style D fill:#c9b8e8,stroke:#9b7fd4
 ```
-
+ 
 **Logic đọc:** Xác định **khi nào** giảm → lọc giai đoạn đó → xem **ở đâu** giảm kèm **contribution %** → ưu tiên theo mức đóng góp. Dùng bộ lọc Time / Brand / Category / Country / Manager để thu hẹp trước khi sang Bước 2.
-
-**Ví dụ:** Revenue $26.6M, giảm 31% vs năm ngoái, đạt 99.92% target. Xem Revenue By Time thấy giảm mạnh từ tháng 3 → lọc giai đoạn đó ra: Computers chiếm 36% tổng revenue và giảm 34.96%, ASP giảm 13% — contribution cao nhất nên ưu tiên xử lý trước. Cell phones chiếm 18.5% cũng giảm 30% → ưu tiên thứ hai. NPD chỉ đóng góp $87K — quá nhỏ, chưa đủ bù đắp.
-
+ 
+**Ví dụ:** Revenue $26.6M, giảm 31% vs năm ngoái, đạt 99.92% target. Xem Revenue By Time thấy giảm mạnh từ tháng 3 → lọc giai đoạn đó: Computers chiếm 36% tổng revenue nhưng giảm 35% — contribution cao nhất nên ưu tiên xử lý trước. NPD chỉ đóng góp $87K — quá nhỏ, chưa đủ bù đắp.
+ 
 ---
-
 ### Bước 2 — Sales Team & Store: *"Vấn đề đến từ đâu trong vận hành?"*
 
 Khi đã biết doanh số giảm ở khu vực / danh mục nào, vào trang này để xác định vấn đề nằm ở nhân viên hay cửa hàng.
